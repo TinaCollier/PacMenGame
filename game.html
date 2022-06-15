@@ -62,6 +62,30 @@
     function makeOne() {
         pacMen.push(makePac()); // add a new PacMan
     }
+
+    // makes PacMan chomp and faces them direction of movement
+    let toggle = false;
+    function imageChange() {
+        let img1 = pacArray[0][0]
+        let img2 = pacArray[0][1]
+        let img3 = pacArray[1][0]
+        let img4 = pacArray[1][1]
+
+        pacMen.forEach((pacMan) => {
+            if(pacMan.velocity.x > 0) {
+                pacMan.newimg.src = toggle ? img1 : img2;
+                toggle=!toggle;
+                }
+             
+            else {
+                pacMan.newimg.src = toggle ? img3 : img4;
+                toggle=!toggle;
+            }
+            })
+        }
+ 
+        
+    setInterval(imageChange, 200);
 </SCRIPT>
 
 <body>
